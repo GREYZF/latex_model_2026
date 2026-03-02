@@ -1,0 +1,57 @@
+\begin{tikzpicture}[line width=0.9pt]
+
+  % ── Fixed supports ────────────────────────────────────────────────
+  \fill[pattern=north east lines] (-0.3,-0.25) rectangle (0.3, 0);
+  \fill[pattern=north east lines] (4.7,-0.25) rectangle (5.3, 0);
+  \draw (-0.3,0) -- (0.3,0);
+  \draw (4.7,0) -- (5.3,0);
+
+  % ── Columns ───────────────────────────────────────────────────────
+  \draw (0,0) -- (0,2.7);
+  \draw (5,0) -- (5,2.7);
+
+  % ── Beam (overhangs columns on both sides) ────────────────────────
+  \draw (0,  2.7) -- (5,  2.7);   % bottom of beam
+  \draw (0,  3.0) -- (5,  3.0);   % top of beam
+  \draw (0,  2.7) -- (0,  3.0);   % left end
+  \draw (5,  2.7) -- (5,  3.0);   % right end
+
+  % ── Machine base: trapezoid ───────────────────────────────────────
+  \draw (2.25, 3.0) -- (2.38, 3.3) -- (2.62, 3.3) -- (2.75, 3.0);
+
+  % ── Rotating machine: two circles, no dot ─────────────────────────
+  \draw (2.5, 3.55) circle (0.25);
+  \draw (2.5, 3.55) circle (0.10);
+   % ── F(t): downward red arrow below beam ───────────────────────────
+  \draw[-{Stealth}, tudred, line width=1.2pt]
+    (2.5, 2.7) -- (2.5, 1.9);
+  \node[tudred, anchor=west, font=\timesnew\small] at (2.6, 2.3) {$F(t)$};
+
+  % ── w(t): horizontal tudelft blue arrow at mid-column ─────────────
+  \draw[-{Stealth}, tudelft, line width=1.2pt]
+    (1.0, 2.7) -- (1.0, 1.9);
+  \node[tudelft, anchor=west, font=\small] at (1.1, 2.3) {\timesnew {$w(t)$}};
+  \begin{scope}[xshift=6.5cm]
+    \begin{axis}[
+      at={(0,0)},
+      width=5cm, height=3.5cm,
+      xmin=0, xmax=4.5*pi,
+      ymin=-1.5, ymax=1.5,
+      axis lines=center,
+      xlabel={$t$},
+      ylabel={$F(t)$},
+      xlabel style={at={(axis description cs:0.98,0.5)}, anchor=west, font=\small},
+      ylabel style={at={(axis description cs:0.03,0.98)}, anchor=south, font=\small},
+      xtick={0, pi, 2*pi, 3*pi, 4*pi},
+      xticklabels={},
+      ytick={-1, 0, 1},
+      yticklabels={},
+      tick style={draw=none},
+      axis line style={-{Stealth}, line width=0.8pt},
+      clip=false,
+    ]
+      \addplot[tudred, line width=1.2pt, samples=200, domain=0:4*pi]
+        {0.5*sin(deg(x))};
+    \end{axis}
+  \end{scope}
+\end{tikzpicture}

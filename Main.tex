@@ -1,0 +1,64 @@
+\documentclass[10pt,openany]{book}
+
+% ── Preamble ─────────────────────────────────────────────────────────
+\input{preamble/packages}
+\input{preamble/layout}
+% \input{preamble/theorems}
+\input{preamble/commands}
+
+% ─────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ── Title Page ───────────────────────────────────────────────────────
+\begin{titlepage}
+\pagestyle{plain}
+\pagenumbering{gobble}
+\begin{center}
+\vspace*{1cm}
+    % 标题内容
+{\huge\bfseries Name of thesis}\\
+\vspace*{1cm}
+{% 正文内容
+for the purpose of obtaining the degree of Master of Science in Civil Engineering\\[0.2cm]
+at Delft University of Technology\\[0.2cm]
+to be defended publicly on Monday 8 September 2025 at 13:00 o’clock\\[0.7cm]
+\vspace*{0.3cm}
+by\\[0.5cm]
+{\large\bfseries Your name}\\
+\vspace*{1cm}
+\begin{tabular}{ll}
+\textbf{Graduaction Committee:}&\\[0.3cm]
+    Member 1,   & Section name, Committee Chair \\[0.3cm]
+    Member 2,  & Section name, Daily Supervisor \\[0.3cm]
+    Member 3, & Section name, Daily Supervisor \\[0.3cm]
+    Member 4, & Company name\\[0.3cm]
+\end{tabular}
+}
+\\[1cm]
+An electronic version of this dissertation is available at \\
+\texttt{https://repository.tudelft.nl/}.
+\vspace*{1cm}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.2\linewidth]{figures/logo-black.pdf}
+\end{figure}
+\end{center}
+\end{titlepage}
+\let\cleardoublepage\clearpage 
+% ── Front Matter ─────────────────────────────────────────────────────
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+\input{Summary}
+\input{Preface}
+
+% ── Main Matter ──────────────────────────────────────────────────────
+\mainmatter
+\input{Chapter1}
+
+% ── Back Matter ──────────────────────────────────────────────────────
+\backmatter
+\input{Reference}
+
+\end{document}

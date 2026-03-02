@@ -1,0 +1,31 @@
+\begin{tikzpicture}[line width=0.9pt, >=Stealth]
+ % ── Soil fill ─────────────────────────────────────────────────────
+  \fill[gray!15] (0.25, 0) rectangle (9.75, -0.8);
+  % ── Beam as one closed path (height 0 to 0.35) ───────────────────
+  \filldraw[fill=tudelft, draw=black]
+    plot[domain=0:0.35, samples=80, smooth]
+      ({0.3 + 0.1*sin(360*\x/0.35)}, \x)
+    -- (9.7, 0.35)
+    -- plot[domain=0.35:0, samples=80, smooth]
+      ({9.7 + 0.1*sin(360*\x/0.35)}, \x)
+    -- (0.3, 0)
+    -- cycle;
+  % ── Springs ───────────────────────────────────────────────────────
+  \foreach \x in {0.5, 1.2, 1.9, 2.6, 3.3, 4.0, 4.7, 5.4, 6.1, 6.8, 7.5, 8.2, 8.9, 9.6} {
+    \draw[decorate, decoration={zigzag, segment length=3pt, amplitude=2.5pt, pre=lineto, pre length=4pt, post=lineto, post length=4pt}]
+      (\x, -0.8) -- (\x, 0);
+  }
+  % ── Ground ────────────────────────────────────────────────────────
+  \fill[pattern=north east lines] (0.2, -0.8) rectangle (9.8, -0.93);
+  \draw (0.2,-0.8) -- (9.8,-0.8);
+  % ── F₀ arrow ──────────────────────────────────────────────────────
+  \draw[-{Stealth}, tudred, line width=1.5pt]
+    (4.5, 1.2) -- (4.5, 0.35);
+  \node[anchor=south east, font=\timesnew\small] at (4.5, 0.8) {$F_0$};
+  % ── v arrow ───────────────────────────────────────────────────────
+  \draw[-{Stealth}, black, line width=1.2pt]
+    (4.7, 0.8) -- (5.5, 0.8);
+  \node[anchor=south west, font=\timesnew\small] at (5.4, 0.6) {$v$};
+  % ── ρ, EI label ───────────────────────────────────────────────────
+  \node[anchor=west, font=\timesnew\small] at (9.95, 0.175) {$\rho,\, EI$};
+\end{tikzpicture}

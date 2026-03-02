@@ -1,0 +1,66 @@
+% ── Encoding & Language ──────────────────────────────────────────────
+% Note: T1/utf8 not needed for XeLaTeX
+\usepackage[english]{babel}
+\usepackage{pgfplots}
+% ── Fonts (XeLaTeX) ──────────────────────────────────────────────────
+\usepackage{fontspec}
+\setmainfont{Alegreya}[Numbers=Lining]
+\newfontfamily\headerfont{Alegreya Sans}[Numbers=Lining]
+
+% ── Math ─────────────────────────────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+\setmathfont{Erewhon-Math.otf}
+\setmathfont{STIX Two Math}[range={up/{Φ}}]
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{physics}
+
+% ── Equation numbering font ───────────────────────────────────────────
+\makeatletter
+\def\tagform@#1{\maketag@@@{{\normalfont\rmfamily(#1)}}}
+\makeatother
+
+% ── Figures & Tables ─────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{subcaption}
+\captionsetup[subfigure]{skip=3pt}
+\graphicspath{{figures/}}
+
+% ── Colors & Boxes ───────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+% ── TikZ ─────────────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{patterns, calc, decorations.pathmorphing, automata, arrows, shapes,bending,decorations.pathmorphing,3d,arrows.meta,positioning}
+
+\tikzset{force/.style={-{Stealth[length=1.5mm,width=1mm]}, line width=0.2mm}}
+\tikzset{disp/.style={-{Stealth[length=1.5mm,width=1mm]}, line width=0.2mm}}
+\tikzset{axis/.style={-{Straight Barb[length=4pt,width=4pt,bend]}, line width=0.2mm}}
+\tikzset{arrow/.style={-{Straight Barb[length=4pt,width=4pt,bend]}, line width=0.3pt}}
+\tikzset{smallarrow/.style={-{Straight Barb[length=1pt,width=1pt, bend]}, line width=0.3pt}}
+\tikzset{
+    process/.style={rectangle, draw=black, fill=white, text=black, font=\small, text centered, minimum height=0.5cm,line width = 0.2mm},
+    input/.style={rectangle, rounded corners,fill=white, draw=black, text=black, font=\footnotesize, text centered, minimum height=0.6cm,anchor=center,line width = 0.2mm},
+    output/.style={rectangle, rounded corners=0.25cm,fill=white, draw=black, text=black, font=\footnotesize, text centered, minimum height=0.6cm,anchor=center,line width = 0.2mm},
+    check/.style={diamond, draw=black, fill=black, text=white, font=\ArialFont\footnotesize, text centered, minimum height=0.8cm,line width = 0.2mm},
+    arrow/.style={thick,->,>=stealth},
+    dashed_arrow/.style={thick,dashed,->,>=stealth},
+    ground/.style={fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm}
+}
+% ── Hyperlinks ───────────────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=false,
+  linktoc=all,
+  linkcolor=black,
+  filecolor=black,
+  urlcolor=black,
+  citecolor=black,
+}
+\usepackage{cleveref}
