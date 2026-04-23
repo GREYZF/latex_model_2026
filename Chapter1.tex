@@ -11,7 +11,7 @@ In the following sections, some coding examples are included for the \textit{For
 \section{Formulae}
 The motion of an isotropic, linear elastic soil layer is governed by Navier--Cauchy equation:
 \begin{align}
-\mu_{\mathrm{s}}\nabla^2\mathbf{u}_{\mathrm{s}}+\left(\lambda_{\mathrm{s}}+\mu_{\mathrm{s}}\right)\nabla\nabla\cdot\mathbf{u}_{\mathrm{s}} - \rho_{\mathrm{s}}{\ddot{\mathbf{u}}}_{\mathrm{s}}=0,
+\underbrace{\mu_{\mathrm{s}}\nabla^2\mathbf{u}_{\mathrm{s}}}_{\text{first\,term}}+\left(\lambda_{\mathrm{s}}+\mu_{\mathrm{s}}\right)\nabla\nabla\cdot\mathbf{u}_{\mathrm{s}} - \rho_{\mathrm{s}}{\ddot{\mathbf{u}}}_{\mathrm{s}}=0,
 \label{eq: Navier-Cauchy Equation}
 \end{align}
 \section{Figures}
@@ -160,7 +160,7 @@ Figures below are made by tikz module in \LaTeX:
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/beam_load.png}   % or \includegraphics if you prefer the PDF
-  \caption{Moving load on a finite Euler-Bernoulli beam}
+  \caption{Moving load on an infinite Euler-Bernoulli beam}
   \label{fig:c1_beam_load}
 \end{figure}
 \subsection{Flow chart}

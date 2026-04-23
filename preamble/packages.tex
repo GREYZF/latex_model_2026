@@ -1,7 +1,7 @@
 % ── Encoding & Language ──────────────────────────────────────────────
-% Note: T1/utf8 not needed for XeLaTeX
 \usepackage[english]{babel}
 \usepackage{pgfplots}
+
 % ── Fonts (XeLaTeX) ──────────────────────────────────────────────────
 \usepackage{fontspec}
 \setmainfont{Alegreya}[Numbers=Lining]
@@ -10,12 +10,18 @@
 % ── Math ─────────────────────────────────────────────────────────────
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
+% unicode-math 必须在 amsmath 之后、bm 之前（且不能与 bm 共存）
 \usepackage{unicode-math}
 \setmathfont{Erewhon-Math.otf}
 \setmathfont{STIX Two Math}[range={up/{Φ}}]
-\usepackage{mathtools}
-\usepackage{bm}
-\usepackage{physics}
+% !! 删除 \usepackage{bm} !!
+% unicode-math 自带粗体命令：\symbf{} 替代 \bm{}
+%                             \symbfit{} 替代斜体粗体
+
+% physics 包与 unicode-math 有冲突，改用 derivative 包替代
+% \usepackage{physics}  <-- 删除
+\usepackage{derivative}   % 提供 \odv \pdv 等，与 unicode-math 兼容
 
 % ── Equation numbering font ───────────────────────────────────────────
 \makeatletter
@@ -37,22 +43,31 @@
 
 % ── TikZ ─────────────────────────────────────────────────────────────
 \usepackage{tikz}
-\usetikzlibrary{patterns, calc, decorations.pathmorphing, automata, arrows, shapes,bending,decorations.pathmorphing,3d,arrows.meta,positioning}
-
+\usetikzlibrary{patterns, calc, decorations.pathmorphing, automata,
+                arrows, shapes, bending, 3d, arrows.meta, positioning}
 \tikzset{force/.style={-{Stealth[length=1.5mm,width=1mm]}, line width=0.2mm}}
 \tikzset{disp/.style={-{Stealth[length=1.5mm,width=1mm]}, line width=0.2mm}}
 \tikzset{axis/.style={-{Straight Barb[length=4pt,width=4pt,bend]}, line width=0.2mm}}
 \tikzset{arrow/.style={-{Straight Barb[length=4pt,width=4pt,bend]}, line width=0.3pt}}
-\tikzset{smallarrow/.style={-{Straight Barb[length=1pt,width=1pt, bend]}, line width=0.3pt}}
+\tikzset{smallarrow/.style={-{Straight Barb[length=1pt,width=1pt,bend]}, line width=0.3pt}}
 \tikzset{
-    process/.style={rectangle, draw=black, fill=white, text=black, font=\small, text centered, minimum height=0.5cm,line width = 0.2mm},
-    input/.style={rectangle, rounded corners,fill=white, draw=black, text=black, font=\footnotesize, text centered, minimum height=0.6cm,anchor=center,line width = 0.2mm},
-    output/.style={rectangle, rounded corners=0.25cm,fill=white, draw=black, text=black, font=\footnotesize, text centered, minimum height=0.6cm,anchor=center,line width = 0.2mm},
-    check/.style={diamond, draw=black, fill=black, text=white, font=\ArialFont\footnotesize, text centered, minimum height=0.8cm,line width = 0.2mm},
+    process/.style={rectangle, draw=black, fill=white, text=black,
+                    font=\small, text centered, minimum height=0.5cm, line width=0.2mm},
+    input/.style={rectangle, rounded corners, fill=white, draw=black,
+                  text=black, font=\footnotesize, text centered,
+                  minimum height=0.6cm, anchor=center, line width=0.2mm},
+    output/.style={rectangle, rounded corners=0.25cm, fill=white, draw=black,
+                   text=black, font=\footnotesize, text centered,
+                   minimum height=0.6cm, anchor=center, line width=0.2mm},
+    check/.style={diamond, draw=black, fill=black, text=white,
+                  font=\footnotesize, text centered,
+                  minimum height=0.8cm, line width=0.2mm},
     arrow/.style={thick,->,>=stealth},
     dashed_arrow/.style={thick,dashed,->,>=stealth},
-    ground/.style={fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm}
+    ground/.style={fill, pattern=north east lines, draw=none,
+                   minimum width=0.75cm, minimum height=0.3cm}
 }
+
 % ── Hyperlinks ───────────────────────────────────────────────────────
 \usepackage{hyperref}
 \hypersetup{
